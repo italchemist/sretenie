@@ -1,0 +1,20 @@
+// Place all the styles related to the Welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.page-alternate { padding: 25px 0 25px 0; }
+.page { padding: 25px 0 25px 0 }
+header .sticky-nav { height: 195px; }
+nav#menu #menu-nav li a { line-height:45px; }
+nav#menu #menu-nav li a { color: black; }
+.second-menu li a { color:#dfe4eb !important; }
+.title-page { margin-bottom: 0px; }
+.day { color: #08415b; font-weight: bold; }
+.carousel-caption { background: none; }
+#myCarousel img { width:100; height:auto; }
+.sticky-wrapper { height: 60px; }
+.sticky-nav { background: url(header4.jpg); background-size: cover; }
+.sticky-menu { position:absolute;bottom:0;left:20px; }
+.menu-line { overflow:hidden;white-space:nowrap;height:45px; }
+.page-shift { padding-top:135px;padding-bottom:0px }

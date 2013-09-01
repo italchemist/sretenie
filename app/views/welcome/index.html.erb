@@ -1,0 +1,206 @@
+    <!-- Slider -->
+    <div class="page page-shift">
+      <div id="myCarousel" class="carousel slide">
+        <div class="carousel-inner">
+          <div class="item active">
+            <img src="slide1.jpg">
+            <div class="carousel-caption">
+              <h1>Example headline.</h1>
+              <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+            </div>
+          </div>
+          <div class="item">
+            <img src="slide1.jpg">
+            <div class="container">
+              <div class="carousel-caption">
+                <h1>Another example headline.</h1>
+                <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <img src="slide1.jpg">
+            <div class="container">
+              <div class="carousel-caption">
+                <h1>One more for good measure.</h1>
+                <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+      </div>
+
+      <div class="container">
+        <!-- Title Page -->
+        <div class="row">
+          <div class="span12">
+            <div class="title-page">
+              <div class="page-description">
+                <br/>
+              
+                <div class="row">
+                    <% @best_trips.each do |key,value| %>
+                      <div class="span4">
+                        <h3><%=@best_trips_headers[key]%></h3>
+                        <table class="table table-hover">
+                          <% for trip_schedule in value %>
+                            <tr>
+                              <td class="day"><%=l(trip_schedule.date_start.to_date, :format => :short)%></td>
+                              <td><%=trip_schedule.trip.name%></td>
+                            </tr>
+                          <% end %>
+                        </table>
+                      </div>
+
+                    <% end %>
+                  
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Title Page -->
+      </div>
+    </div>
+    
+    <!-- End Our Work Section -->
+    <div id="schedule" class="page-alternate" style="background: url(schedule-header2.png); background-size: auto 100%; background-position: center; background-repeat:repeat-x;text-align: center;vertical-align: middle;line-height: 10px;color:white;">
+        <br>График всех поездок
+      </div>
+      <div class="container">
+        <!-- Title Page -->
+        <div class="row">
+        	<table class="table table-bordered">
+        		<% last_category_id = nil %>
+        		<% for trip in @trips %>
+        			<% if last_category_id != trip.trip_category_id && trip.trip_category != nil %>
+        				<% last_category_id = trip.trip_category_id %>
+        				<tr style="background-color:#f9dca5">
+        					<td><div id="<%=trip.trip_category.tag%>"><%= trip.trip_category.name %></div></td>
+                  <td>ЯНВ</td>
+                  <td>ФЕВ</td>
+                  <td>МАР</td>
+                  <td>АПР</td>
+                  <td>МАЙ</td>
+                  <td>ИЮН</td>
+                  <td>ИЮЛ</td>
+                  <td>АВГ</td>
+                  <td>СЕН</td>
+                  <td>ОКТ</td>
+                  <td>НОЯ</td>
+                  <td>ДЕК</td>
+        				</tr>
+        			<% end %> 
+        			
+        			<tr>
+        				<td><%= trip.name %></td>
+		        		<% for month in 1..12 %>
+        					<td>
+        						<% for schedule in @schedule.select{ |s| s.date_start.month == month && s.trip == trip } %>
+                      <% if schedule.date_start.day != schedule.date_end.day %>
+        							 <%= schedule.date_start.day %>-<%= schedule.date_end.day %>;
+                      <% else %>
+                       <%= schedule.date_start.day %>;  
+                      <% end %>
+        						<% end %>
+        					</td>
+        				<% end %>
+        			</tr>
+        		<% end %>
+        	</table>
+        </div>
+      </div>
+    <!-- About Section -->
+    <div id="about" class="page-alternate">
+      <div class="container">
+        <!-- Title Page -->
+        <div class="row">
+          <div class="span12">
+            <div class="title-page">
+              <h2 class="title">О Нас</h2>
+              <div class="page-description">
+                <p>В паломническое агентство «Сретение» обращаются не только глубоко верующие люди, но и все жители города, интересующиеся развитием православия, историей и мировым культурным наследием. Наши паломнические поездки из СПб по святыням русской земли настолько интересы и познавательны, что все экскурсанты возвращаются к нам, чтобы посетить новую обитель. Всем давно известно, что паломничество по России и другим странам делает людей духовно богаче, глубже и помогает понять многие вещи, которые казались совсем недавно незначительными или неинтересными.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Title Page -->
+        <div class="row margin-40">
+          <div class="span4">
+            <h3>Однодневные поездки</h3>
+            <p> В паломническое агентство «Сретение» обращаются не только глубоко верующие люди, но и все жители города, интересующиеся развитием православия, историей и мировым культурным наследием. Наши паломнические поездки из СПб по святыням русской земли настолько интересы и познавательны, что все экскурсанты возвращаются к нам, чтобы посетить новую обитель. Всем давно известно, что паломничество по России и другим странам делает людей духовно богаче, глубже и помогает понять многие вещи, которые казались совсем недавно незначительными или неинтересными. </p>
+          </div>
+          <div class="span4">
+            <h3>Многодневные поездки</h3>
+            <p>Сегодня православное паломничество объединяет людей из разных уголков нашей страны, а проехать по маршруту Золотого кольца России - мечта каждого, неравнодушного к истории человека. Совершая паломнические поездки из Санкт-Петербурга, вы вместе с нашими замечательными экскурсоводами восхититесь деревянными церквями Суздаля, великолепием Троице-Сергиевой Лавры, величественной строгостью Тихвинского и Успенского монастырей, посетите Афон и Иерусалим.</p>
+          </div>
+          <div class="span4">
+            <h3>За границу</h3>
+            <p>Сегодня православное паломничество объединяет людей из разных уголков нашей страны, а проехать по маршруту Золотого кольца России - мечта каждого, неравнодушного к истории человека. Совершая паломнические поездки из Санкт-Петербурга, вы вместе с нашими замечательными экскурсоводами восхититесь деревянными церквями Суздаля, великолепием Троице-Сергиевой Лавры, величественной строгостью Тихвинского и Успенского монастырей, посетите Афон и Иерусалим.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End About Section -->
+    <!-- End Services Section -->
+    <!-- Google Map -->
+    <div id="map-area">
+      <img class="map" src="map.jpg" style="width:100%; height: auto;"/>
+    </div>
+    <!-- End Google Map -->
+    <!-- Contact Section -->
+    <div id="contact" class="page">
+      <div class="container">
+        <!-- Title Page -->
+        <div class="row">
+          <div class="span12">
+            <div class="title-page">
+              <h2 class="title">Оставить заявку</h2>
+              <div class="page-description">
+                <p>Вы можете оставить заявку, и мы свяжемся с Вами.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Title Page -->
+        <!-- Contact Form -->
+        <div class="row">
+          <div class="span9">
+            <form id="contact-form" class="contact-form" action="http://themes.alessioatzeni.com/html/chakra/light/index.html#">
+              <p class="contact-name">
+                <input id="contact_name" type="text" placeholder="Имя" value="" name="name">
+              </p>
+              <p class="contact-email">
+                <input id="contact_email" type="text" placeholder="Телефон/Email" value="" name="email">
+              </p>
+              <p class="contact-message">
+                <textarea id="contact_message" placeholder="Сообщение" name="message" rows="5" cols="40"></textarea>
+              </p>
+              <p class="contact-submit">
+                <a id="contact-submit" class="submit" href="http://themes.alessioatzeni.com/html/chakra/light/index.html#">Оставить заявку</a>
+              </p>
+              <div id="response">
+              </div>
+            </form>
+          </div>
+          <div class="span3">
+            <div class="contact-details">
+              <h3>Контакты</h3>
+              <ul>
+                <li><a href="http://themes.alessioatzeni.com/html/chakra/light/index.html#">larisa_1956@mail.ru</a></li>
+                <li>(812) 314-46-73</li>
+                <li>
+                  Сретение
+                  <br>
+                  Набережная Канала Грибоедова, д.5
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- End Services Form -->
+      </div>
+    </div>

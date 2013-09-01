@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Chakra | Responsive One Page Template</title>
+    <meta name="description" content="">
+    <link href="http://themes.alessioatzeni.com/html/chakra/light/_include/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://themes.alessioatzeni.com/html/chakra/light/_include/css/main.css" rel="stylesheet">
+    <link href="http://themes.alessioatzeni.com/html/chakra/light/_include/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <header>
+      <!-- Floating Menu -->
+      <div class="sticky-wrapper">
+        <div class="sticky-nav">
+          <div class="sticky-menu">
+            <nav id="menu">
+              <!-- First Menu Line -->
+              <ul id="menu-nav" class="menu-line">
+                <li><a href="<%=root_path%>">График поездок</a></li>
+                <li><a href="<%=root_path%>#about">О Нас</a></li>
+                <li><a href="<%=news_path%>">Новости</a></li>
+                <li><a href="<%=%>">Прием паломников в Санкт-Петербурге</a></li>
+                <li><a href="<%=reviews_path%>">Отзывы</a></li>
+                <li><a href="<%=contacts_path%>">Контакты</a></li>
+              </ul>
+              <!--  Second Menu Line -->
+              <ul id="menu-nav" class="second-menu menu-line">
+                <li><a href="<%=root_path%>#oneday">Однодневные поездки</a></li>
+                <li><a href="<%=root_path%>#manyday">Многодневные поездки</a></li>
+                <li><a href="<%=root_path%>#external">Зарубежные поездки</a></li>
+                <li><a href="<%=root_path%>#crimea">Крым</a></li>
+                <li><a href="<%=root_path%>#balaam">Валаам</a></li>
+                <li><a href="<%=root_path%>#spb">Экскурсии по Санкт-Петербургу</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <%= yield %>
+
+
+
+    <script type="text/javascript">
+      $(document).ready(function () {
+          $("header .sticky-nav").css("height", "195px");
+            $("header .sticky-nav").css("background", "url(header4.jpg)"); 
+            $("header .sticky-nav").css("background-size", "cover");
+            $('#myCarousel').carousel({});
+            $('.sticky-nav').css("position", "fixed");// waypoint('sticky');
+      
+      
+        $(window).scroll(function () {
+          var scrollTop = $(window).scrollTop();
+          if (scrollTop > 50) {
+            $("header .sticky-nav").css("height", "88px");
+            $("header .sticky-nav").css("background", "url(menu2.jpg)");
+            $("header .sticky-nav").css("background-size", "cover");
+          } else {
+            $("header .sticky-nav").css("height", "195px");
+            $("header .sticky-nav").css("background", "url(header4.jpg)"); 
+            $("header .sticky-nav").css("background-size", "cover");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<!-- About Section -->
+<div id="about" class="page-alternate">
+  <div class="container">
+    <!-- Title Page -->
+    <div class="row">
+      <div class="span12">
+        <div class="title-page">
+          <h2 class="title">Новости</h2>
+        </div>
+      </div>
+    </div>
+    <!-- End Title Page -->
+    <div class="row margin-40">
+      <div class="span4">
+      	<% for news in @news %>
+      		<h3><%=news.header%></h3>
+      		<p style="text-align:justify;"><%=news.content%></p>
+      	<% end %>
+    </div>
+  </div>
+</div>
