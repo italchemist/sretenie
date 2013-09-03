@@ -31,7 +31,7 @@ gem "watu_table_builder", :require => "table_builder"
 gem "squeel" 
 gem 'capistrano'
 gem 'unicorn'
-gem 'mysql2'
+gem 'pg'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

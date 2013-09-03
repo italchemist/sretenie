@@ -19,9 +19,10 @@ test:
   timeout: 5000
 
 production:
-  adapter: mysql2
-  encoding: utf8
-  database: italchem_srete64
-  username: italchem_srete64
-  password: xrZ2s1MJ2M
-  host: mysql5.locum.ru
+  adapter: postgresql
+  encoding: unicode
+  host: ec2-54-225-91-60.compute-1.amazonaws.com
+  port: 5432
+  database: dd7g1qa8dcdpag
+  username: yqnwxwubniiimq
+  password: shIEqI8pqsZkn6YD1diIwhhYPu
