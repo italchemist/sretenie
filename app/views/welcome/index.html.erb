@@ -96,7 +96,7 @@
         			<% end %> 
         			
         			<tr>
-        				<td><%= trip.name %></td>
+        				<td><%= link_to trip.name, trip %></td>
 		        		<% for month in 1..12 %>
         					<td>
         						<% for schedule in @schedule.select{ |s| s.date_start.month == month && s.trip == trip } %>

@@ -1,4 +1,6 @@
 Sretenie::Application.routes.draw do
+  get "trip/index"
+  resources :trip
   get "request/create"
   get "contacts/index"
   get "news/index"

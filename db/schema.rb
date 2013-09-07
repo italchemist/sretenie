@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130826041052) do
+ActiveRecord::Schema.define(version: 20130907091212) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "news", force: true do |t|
     t.string   "content"
@@ -27,6 +30,16 @@ ActiveRecord::Schema.define(version: 20130826041052) do
     t.string   "tag"
   end
 
+  create_table "trip_descriptions", force: true do |t|
+    t.integer  "trip_id"
+    t.integer  "day"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "trip_descriptions", ["trip_id"], name: "index_trip_descriptions_on_trip_id", using: :btree
+
   create_table "trip_schedules", force: true do |t|
     t.datetime "date_start"
     t.datetime "date_end"
@@ -36,15 +49,16 @@ ActiveRecord::Schema.define(version: 20130826041052) do
     t.integer  "trip_id"
   end
 
-  add_index "trip_schedules", ["trip_id"], name: "index_trip_schedules_on_trip_id"
+  add_index "trip_schedules", ["trip_id"], name: "index_trip_schedules_on_trip_id", using: :btree
 
   create_table "trips", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "trip_category_id"
+    t.text     "description"
   end
 
-  add_index "trips", ["trip_category_id"], name: "index_trips_on_trip_category_id"
+  add_index "trips", ["trip_category_id"], name: "index_trips_on_trip_category_id", using: :btree
 
 end
