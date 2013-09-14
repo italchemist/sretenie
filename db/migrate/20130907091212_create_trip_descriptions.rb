@@ -4,8 +4,6 @@ class CreateTripDescriptions < ActiveRecord::Migration
       t.references :trip, index: true
       t.integer :day
       t.text :description
-
-      t.timestamps
     end
   end
 end

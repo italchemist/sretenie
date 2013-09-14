@@ -31,6 +31,7 @@ gem "squeel"
 gem 'capistrano'
 gem 'unicorn'
 gem 'pg'
+gem 'activeadmin', github: 'gregbell/active_admin', branch: 'rails4'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

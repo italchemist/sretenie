@@ -12,6 +12,9 @@
               <h2 class="title"><%= @trip.name %></h2>
               <div class="page-description">
                 <p><%= @trip.description %></p>
+                <% for trip_description in @trip.trip_descriptions %>
+                  <p><%= trip_description.description %></p>
+                <% end %>
               </div>
             </div>
           </div>
