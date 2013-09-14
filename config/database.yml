@@ -6,11 +6,10 @@
 development:
   adapter: postgresql
   encoding: unicode
-  host: ec2-54-225-91-60.compute-1.amazonaws.com
-  port: 5432
-  database: dd7g1qa8dcdpag
-  username: yqnwxwubniiimq
-  password: shIEqI8pqsZkn6YD1diIwhhYPu
+  host: postgresql5.locum.ru
+  database: italchem_srete35
+  username: italchem_srete35
+  password: L81mjfzluGg
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -24,8 +23,7 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  host: ec2-54-225-91-60.compute-1.amazonaws.com
-  port: 5432
-  database: dd7g1qa8dcdpag
-  username: yqnwxwubniiimq
-  password: shIEqI8pqsZkn6YD1diIwhhYPu
+  host: postgresql5.locum.ru
+  database: italchem_srete35
+  username: italchem_srete35
+  password: L81mjfzluGg
