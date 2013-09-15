@@ -48,7 +48,7 @@
                           <% for trip_schedule in value %>
                             <tr>
                               <td class="day"><%=l(trip_schedule.date_start.to_date, :format => :short)%></td>
-                              <td><%=link_to trip_schedule.trip.name, trip %></td>
+                              <td><%=link_to trip_schedule.trip.name, trip_schedule.trip %></td>
                             </tr>
                           <% end %>
                         </table>
