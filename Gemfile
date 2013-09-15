@@ -32,6 +32,7 @@ gem 'capistrano'
 gem 'unicorn'
 gem 'pg'
 gem 'activeadmin', github: 'gregbell/active_admin', branch: 'rails4'
+gem 'inherited_resources'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

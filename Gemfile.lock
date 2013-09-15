@@ -198,6 +198,7 @@ DEPENDENCIES
   activeadmin!
   capistrano
   coffee-rails (~> 4.0.0)
+  inherited_resources
   jbuilder (~> 1.2)
   jquery-rails
   pg

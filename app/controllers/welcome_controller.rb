@@ -10,8 +10,8 @@ class WelcomeController < ApplicationController
 		
 		@best_trips = {}
 		@best_trips[:oneday] = TripSchedule.joins(:trip).where{{trip: (trip_category_id == 1)}}.where{date_start >= DateTime.now}.take(5)
-		@best_trips[:manyday] = TripSchedule.joins(:trip).where{{trip: (trip_category_id == 3)}}.where{date_start >= DateTime.now}.take(5)
-		@best_trips[:external] = TripSchedule.joins(:trip).where{{trip: (trip_category_id >= 4)}}.where{date_start >= DateTime.now}.take(5)
+		@best_trips[:manyday] = TripSchedule.joins(:trip).where{{trip: (trip_category_id == 2)}}.where{date_start >= DateTime.now}.take(5)
+		@best_trips[:external] = TripSchedule.joins(:trip).where{{trip: (trip_category_id >= 3)}}.where{date_start >= DateTime.now}.take(5)
 
 
 		@trips = Trip.order("trip_category_id ASC").to_a
