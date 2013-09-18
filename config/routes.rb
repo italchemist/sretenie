@@ -16,6 +16,8 @@ Sretenie::Application.routes.draw do
   get 'responses' => 'responses#index'
   get 'contacts' => 'contacts#index'
   get 'reviews' => 'reviews#index'
+  get 'guests' => 'guests#index'
+  
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
