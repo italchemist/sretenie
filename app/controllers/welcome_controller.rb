@@ -2,6 +2,8 @@
 
 class WelcomeController < ApplicationController
 	def index
+		I18n.locale = :ru
+
 		@categories = TripCategory.all
 		@best_trips_headers = {}
 		@best_trips_headers[:oneday] = "Однодневные поездки"
