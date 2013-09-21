@@ -2,7 +2,7 @@
 
 class WelcomeController < ApplicationController
 	def index
-		I18n.locale = :ru
+		I18n.locale = :ruc
 
 		@categories = TripCategory.all
 		@best_trips_headers = {}
@@ -11,9 +11,9 @@ class WelcomeController < ApplicationController
 		@best_trips_headers[:external] = "Поездки за границу"
 		
 		@best_trips = {}
-		@best_trips[:oneday] = TripSchedule.joins(:trip).where{{trip: (trip_category_id == 1)}}.where{date_start >= DateTime.now}.take(5)
-		@best_trips[:manyday] = TripSchedule.joins(:trip).where{{trip: (trip_category_id == 2)}}.where{date_start >= DateTime.now}.take(5)
-		@best_trips[:external] = TripSchedule.joins(:trip).where{{trip: (trip_category_id >= 3)}}.where{date_start >= DateTime.now}.take(5)
+		@best_trips[:oneday] = TripSchedule.joins(:trip).where{{trip: (trip_category_id == 1)}}.where{date_start >= DateTime.now}.order{date_start}.take(5)
+		@best_trips[:manyday] = TripSchedule.joins(:trip).where{{trip: (trip_category_id == 2)}}.where{date_start >= DateTime.now}.order{date_start}.take(5)
+		@best_trips[:external] = TripSchedule.joins(:trip).where{{trip: (trip_category_id >= 3)}}.where{date_start >= DateTime.now}.order{date_start}.take(5)
 
 
 		@trips = Trip.order("trip_category_id ASC").to_a
