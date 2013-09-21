@@ -33,7 +33,6 @@ gem 'unicorn'
 gem 'pg'
 gem 'activeadmin', github: 'gregbell/active_admin', branch: 'rails4'
 gem 'inherited_resources'
-gem 'rails-i18n', '~> 4.0.0.pre' # For 4.0.x
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
