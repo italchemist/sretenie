@@ -13,7 +13,7 @@
               <div class="page-description">
                 <p><%= @trip.description %></p>
                 <% for trip_description in @trip.trip_descriptions %>
-                  <p><%= trip_description.description %></p>
+                  <p><%= trip_description.description.html_safe %></p>
                 <% end %>
               </div>
             </div>
