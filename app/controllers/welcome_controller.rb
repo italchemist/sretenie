@@ -21,7 +21,7 @@ class WelcomeController < ApplicationController
 	end
 
 	def request_create
-		RequestMailer.request_email(params).deliver
+		@result = RequestMailer.request_email(params).deliver
 	end
 
 	def request_completed
