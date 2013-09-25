@@ -7,6 +7,8 @@ Sretenie::Application.routes.draw do
   get "contacts/index"
   get "news/index"
   get "guests/index"
+  post "request" => "welcome#request_create"
+  get "request" => "welcome#request_completed"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

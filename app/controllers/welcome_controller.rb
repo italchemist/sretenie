@@ -19,4 +19,11 @@ class WelcomeController < ApplicationController
 		@trips = Trip.order("trip_category_id ASC").to_a
 		@schedule = TripSchedule.joins(:trip).order("trip_category_id ASC").to_a
 	end
+
+	def request_create
+		RequestMailer.request_email(params).deliver
+	end
+
+	def request_completed
+	end
 end
