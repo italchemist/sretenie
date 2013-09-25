@@ -80,4 +80,16 @@ Sretenie::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address              => "smtp.locum.ru",
+    :port                 => 25,
+    :domain               => 'italchemist.org',
+    :user_name            => 'sretenie@italchemist.org',
+    :password             => 'sretenie_h0m3w0r1d_',
+    :authentication       => 'plain',
+    :enable_starttls_auto => false,
+    :openssl_verify_mode  => 'none'  }
 end
