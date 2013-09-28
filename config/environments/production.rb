@@ -86,9 +86,9 @@ Sretenie::Application.configure do
   config.action_mailer.smtp_settings = {
     :address              => "smtp.locum.ru",
     :port                 => 25,
-    :domain               => 'italchemist.org',
+    :domain               => "italchemist.org",
     :user_name            => 'sretenie@italchemist.org',
-    :password             => 'sretenie_h0m3w0r1d_',
+    :password             => 'qwerty',
     :authentication       => 'plain',
     :enable_starttls_auto => false,
     :openssl_verify_mode  => 'none'  }
