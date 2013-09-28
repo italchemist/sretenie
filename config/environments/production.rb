@@ -91,7 +91,7 @@ Sretenie::Application.configure do
     :domain               => "italchemist.org",
     :user_name            => 'sretenie@italchemist.org',
     :password             => 'qwerty',
-    :authentication       => 'plain',
+    :authentication       => :login,
     :enable_starttls_auto => false,
     :openssl_verify_mode  => 'none'  }
 end
