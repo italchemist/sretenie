@@ -1,0 +1,82 @@
+    <!-- Slider -->
+    <div class="page page-shift">
+    </div>
+    
+    <!-- About Section -->
+    <div id="about" class="page-alternate">
+      <div class="container">
+        <!-- Title Page -->
+        <div class="row">
+          <div class="span12">
+            <div class="title-page">
+              <h2 class="title"><%= @trip.trip.name %></h2>
+              <div class="page-description">
+                <p><%= @trip.trip.description %></p>
+                <p><%= @trip.price %></p>
+                <% for trip_description in @trip.trip.trip_descriptions.order(:id) %>
+                  <p><%= trip_description.description.html_safe %></p>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End About Section -->
+    <!-- End Services Section -->
+
+
+    <!-- End Google Map -->
+    <!-- Contact Section -->
+    <div id="contact" class="page">
+      <div class="container">
+        <!-- Title Page -->
+        <div class="row">
+          <div class="span12">
+            <div class="title-page">
+              <h2 class="title">Оставить заявку</h2>
+              <div class="page-description">
+                <p>Вы можете оставить заявку, и мы свяжемся с Вами.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Title Page -->
+        <!-- Contact Form -->
+        <div class="row">
+          <div class="span9">
+            <form id="contact-form" class="contact-form" action="http://themes.alessioatzeni.com/html/chakra/light/index.html#">
+              <p class="contact-name">
+                <input id="contact_name" type="text" placeholder="Имя" value="" name="name">
+              </p>
+              <p class="contact-email">
+                <input id="contact_email" type="text" placeholder="Телефон/Email" value="" name="email">
+              </p>
+              <p class="contact-message">
+                <textarea id="contact_message" placeholder="Сообщение" name="message" rows="5" cols="40"></textarea>
+              </p>
+              <p class="contact-submit">
+                <a id="contact-submit" class="submit" href="http://themes.alessioatzeni.com/html/chakra/light/index.html#">Оставить заявку</a>
+              </p>
+              <div id="response">
+              </div>
+            </form>
+          </div>
+          <div class="span3">
+            <div class="contact-details">
+              <h3>Контакты</h3>
+              <ul>
+                <li><a href="http://themes.alessioatzeni.com/html/chakra/light/index.html#">larisa_1956@mail.ru</a></li>
+                <li>(812) 314-46-73</li>
+                <li>
+                  Сретение
+                  <br>
+                  Набережная Канала Грибоедова, д.5
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- End Services Form -->
+      </div>
+    </div>

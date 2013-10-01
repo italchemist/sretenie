@@ -1,8 +1,10 @@
 Sretenie::Application.routes.draw do
+  get "trip_schedules/show"
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   get "trip/index"
   resources :trip
+  resources :trip_schedule
   get "request/create"
   get "contacts/index"
   get "news/index"

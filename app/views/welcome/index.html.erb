@@ -101,9 +101,9 @@
         					<td>
         						<% for schedule in @schedule.select{ |s| s.date_start.month == month && s.trip == trip } %>
                       <% if schedule.date_start.day != schedule.date_end.day %>
-        							 <%= schedule.date_start.day %>-<%= schedule.date_end.day %>;
+        							 <%= link_to "#{schedule.date_start.day}-#{schedule.date_end.day}", schedule %>;
                       <% else %>
-                       <%= schedule.date_start.day %>;  
+                       <%= link_to "#{schedule.date_start.day}", schedule %>;
                       <% end %>
         						<% end %>
         					</td>
