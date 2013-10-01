@@ -12,7 +12,7 @@
               <h2 class="title"><%= @trip.trip.name %></h2>
               <div class="page-description">
                 <p><%= @trip.trip.description %></p>
-                <p><%= @trip.price %></p>
+                <p>Стоимость поездки: <%= @trip.price %></p>
                 <% for trip_description in @trip.trip.trip_descriptions.order(:id) %>
                   <p><%= trip_description.description.html_safe %></p>
                 <% end %>
