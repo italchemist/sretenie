@@ -35,6 +35,7 @@ gem 'pg'
 gem 'activeadmin', github: 'gregbell/active_admin', branch: 'rails4'
 gem 'inherited_resources'
 gem 'active_admin_editor'
+gem 'carrierwave'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
