@@ -11,10 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130914090759) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 20131012054423) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -27,9 +24,9 @@ ActiveRecord::Schema.define(version: 20130914090759) do
     t.datetime "updated_at"
   end
 
-  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
-  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
-  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
+  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
+  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace"
+  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
 
   create_table "admin_users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -46,52 +43,43 @@ ActiveRecord::Schema.define(version: 20130914090759) do
     t.datetime "updated_at"
   end
 
-  add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
-  add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
+  add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
+  add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
 
   create_table "news", force: true do |t|
-    t.string   "content"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "header"
+    t.string "content"
+    t.string "header"
   end
 
   create_table "trip_categories", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "tag"
+    t.string "name"
+    t.string "tag"
   end
 
   create_table "trip_descriptions", force: true do |t|
-    t.integer  "trip_id"
-    t.integer  "day"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "trip_id"
+    t.integer "day"
+    t.text    "description"
   end
 
-  add_index "trip_descriptions", ["trip_id"], name: "index_trip_descriptions_on_trip_id", using: :btree
+  add_index "trip_descriptions", ["trip_id"], name: "index_trip_descriptions_on_trip_id"
 
   create_table "trip_schedules", force: true do |t|
     t.datetime "date_start"
     t.datetime "date_end"
     t.float    "price"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.integer  "trip_id"
   end
 
-  add_index "trip_schedules", ["trip_id"], name: "index_trip_schedules_on_trip_id", using: :btree
+  add_index "trip_schedules", ["trip_id"], name: "index_trip_schedules_on_trip_id"
 
   create_table "trips", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "trip_category_id"
-    t.text     "description"
+    t.string  "name"
+    t.integer "trip_category_id"
+    t.text    "description"
+    t.text    "keywords"
   end
 
-  add_index "trips", ["trip_category_id"], name: "index_trips_on_trip_category_id", using: :btree
+  add_index "trips", ["trip_category_id"], name: "index_trips_on_trip_category_id"
 
 end
