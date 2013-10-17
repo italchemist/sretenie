@@ -2,6 +2,23 @@
 
     <!-- Slider -->
     <div class="page page-shift">
+      <div id="myCarousel" class="carousel slide">
+        <div class="carousel-inner">
+
+          <% for photo in @trip.trip_photos %>
+            <div class="item">
+            <center><img src="<%=photo.url%>" style="max-height:400px"></center>
+            <div class="container">
+              <div class="carousel-caption">
+                <p class="lead"><%=photo.description%></p>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+      </div>
     </div>
     
     <!-- About Section -->

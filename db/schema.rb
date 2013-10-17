@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131012072503) do
+ActiveRecord::Schema.define(version: 20131017152723) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -64,6 +64,14 @@ ActiveRecord::Schema.define(version: 20131012072503) do
 
   add_index "trip_descriptions", ["trip_id"], name: "index_trip_descriptions_on_trip_id"
 
+  create_table "trip_photos", force: true do |t|
+    t.string  "url"
+    t.text    "description"
+    t.integer "trip_id"
+  end
+
+  add_index "trip_photos", ["trip_id"], name: "index_trip_photos_on_trip_id"
+
   create_table "trip_schedules", force: true do |t|
     t.datetime "date_start"
     t.datetime "date_end"
@@ -78,7 +86,6 @@ ActiveRecord::Schema.define(version: 20131012072503) do
     t.integer "trip_category_id"
     t.text    "description"
     t.text    "keywords"
-    t.string  "photo"
   end
 
   add_index "trips", ["trip_category_id"], name: "index_trips_on_trip_category_id"

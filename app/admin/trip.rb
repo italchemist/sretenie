@@ -1,7 +1,8 @@
 ActiveAdmin.register Trip do
   controller do
     def permitted_params
-      params.permit(:trip => [:name, :trip_category_id, :description, :keywords, :photo])
+      params.permit!
+      #(:trip => [:name, :trip_category_id, :description, :keywords, :trip_photos, :trip_photos => [ :url ]])
     end
   end
 
@@ -9,9 +10,11 @@ ActiveAdmin.register Trip do
   	f.inputs "Trip" do
       f.input :name
       f.input :trip_category
-      f.input :photo, :as => :file
       f.input :description
       f.input :keywords
+      f.has_many :trip_photos do |s|
+        s.input :url, :as => :file
+      end
     end
     f.buttons
   end 
