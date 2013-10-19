@@ -10,7 +10,10 @@ ActiveAdmin.register Trip do
   	f.inputs "Trip" do
       f.input :name
       f.input :trip_category
+      f.input :order_number
+      f.input :show_in_upcoming
       f.input :description
+      f.input :price_description
       f.input :keywords
       f.has_many :trip_photos do |s|
         s.input :url, :as => :file

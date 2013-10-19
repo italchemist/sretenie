@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131017152723) do
+ActiveRecord::Schema.define(version: 20131019092630) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -86,6 +86,9 @@ ActiveRecord::Schema.define(version: 20131017152723) do
     t.integer "trip_category_id"
     t.text    "description"
     t.text    "keywords"
+    t.integer "order_number"
+    t.boolean "show_in_upcoming"
+    t.text    "price_description"
   end
 
   add_index "trips", ["trip_category_id"], name: "index_trips_on_trip_category_id"
