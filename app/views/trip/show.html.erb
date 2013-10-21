@@ -7,7 +7,12 @@
           <div class="carousel-inner">
 
             <% for photo in @photos %>
-              <div class="item">
+              <% if @first then %>
+                <div class="item active">
+                  <% @first = false %>
+              <% else %>
+                <div class="item">
+              <% end %>
               <center><img src="<%=photo.url%>" style="max-height:400px"></center>
               <div class="container">
                 <div class="carousel-caption">

@@ -4,6 +4,9 @@ class WelcomeController < ApplicationController
 	def index
 		I18n.locale = :ru
 
+		@ads = Advertisement.all
+
+		@first = true
 		@categories = TripCategory.all
 		@best_trips_headers = {}
 		@best_trips_headers[:oneday] = "Однодневные поездки"
