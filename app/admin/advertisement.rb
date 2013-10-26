@@ -9,6 +9,7 @@ ActiveAdmin.register Advertisement do
   form(:html => { :multipart => true }) do |f|
   	f.inputs "Trip" do
       f.input :url, :as => :file
+      f.input :adv_url, :as => :file
       f.input :description
     end
     f.buttons

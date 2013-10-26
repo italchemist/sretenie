@@ -1,3 +1,3 @@
 class Advertisement < ActiveRecord::Base
-  mount_uploader :url, TripPhotoUploader
+  mount_uploader :url, AdvertisementUploader
 end
