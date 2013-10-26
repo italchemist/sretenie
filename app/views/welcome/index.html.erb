@@ -46,7 +46,13 @@
                         <table class="table table-hover">
                           <% for trip_schedule in value %>
                             <tr>
-                              <td class="day"><%=l(trip_schedule.date_start.to_date, :format => :short)%></td>
+                              <td class="day">
+                                <% if trip_schedule.date_start != trip_schedule.date_end %>
+                                 <%= link_to l(trip_schedule.date_start.to_date, :format => :short) + "-" + l(trip_schedule.date_end.to_date, :format => :short), trip_schedule.trip %>
+                                <% else %>
+                                 <%= link_to "#{trip_schedule.date_start.day}", trip_schedule.trip %>
+                                <% end %>
+                              </td>
                               <td><%=link_to trip_schedule.trip.name, trip_schedule.trip %></td>
                             </tr>
                           <% end %>
@@ -99,8 +105,8 @@
 		        		<% for month in 1..12 %>
         					<td>
         						<% for schedule in @schedule.select{ |s| s.date_start.month == month && s.trip == trip } %>
-                      <% if schedule.date_start.day != schedule.date_end.day %>
-        							 <%= link_to "#{schedule.date_start.day}-#{schedule.date_end.day}", schedule %>;
+                      <% if schedule.date_start != schedule.date_end %>
+        							 <%= link_to l(schedule.date_start.to_date, :format => :short) + "-" + l(schedule.date_end.to_date, :format => :short), schedule.trip %>;
                       <% else %>
                        <%= link_to "#{schedule.date_start.day}", schedule %>;
                       <% end %>
