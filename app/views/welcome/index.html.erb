@@ -100,13 +100,23 @@
         				<td><%= link_to trip.name, trip %></td>
 		        		<% for month in 1..12 %>
         					<td>
-        						<% for schedule in @schedule.select{ |s| s.date_start.month == month && s.trip == trip } %>
+        						
+                    <% for schedule in @schedule.select{ |s| s.date_start.month == month && s.trip == trip } %>
+                    
                       <% if schedule.date_start != schedule.date_end %>
-        							 <%= link_to l(schedule.date_start.to_date, :format => :short) + "-" + l(schedule.date_end.to_date, :format => :short), schedule.trip %>;
+                    
+                        <% if schedule.date_start.month != schedule.date_end.month %>
+                          <%= link_to (schedule.date_start.day.to_s + "-" + l(schedule.date_end.to_date, :format => :short)), schedule.trip %>;
+                        <% else %>
+        							    <%= link_to l(schedule.date_start.to_date, :format => :short) + "-" + l(schedule.date_end.to_date, :format => :short), schedule.trip %>;
+                        <% end %>
+                    
                       <% else %>
                        <%= link_to "#{schedule.date_start.day}", schedule %>;
                       <% end %>
-        						<% end %>
+        						
+                    <% end %>
+
         					</td>
         				<% end %>
         			</tr>
