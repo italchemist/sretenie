@@ -48,7 +48,7 @@
                                   <% if trip_schedule.date_start.month != trip_schedule.date_end.month %>
                                     <%= link_to (trip_schedule.date_start.day.to_s + "-" + l(trip_schedule.date_end.to_date, :format => :short)), trip_schedule.trip %>;
                                   <% else %>
-                                    <%= link_to trip_schedule.date_start.day + "-" + trip_schedule.date_end.day, trip_schedule.trip %>;
+                                    <%= link_to trip_schedule.date_start.day.to_s + "-" + trip_schedule.date_end.day.to_s, trip_schedule.trip %>;
                                   <% end %>
                                 
                                 <% else %>
@@ -114,7 +114,7 @@
                         <% if schedule.date_start.month != schedule.date_end.month %>
                           <%= link_to (schedule.date_start.day.to_s + "-" + l(schedule.date_end.to_date, :format => :short)), schedule.trip %>;
                         <% else %>
-        							    <%= link_to schedule.date_start.day + "-" + schedule.date_end.day, schedule.trip %>;
+        							    <%= link_to schedule.date_start.day.to_s + "-" + schedule.date_end.day.to_s, schedule.trip %>;
                         <% end %>
                     
                       <% else %>
