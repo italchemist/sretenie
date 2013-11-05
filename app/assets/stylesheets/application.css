@@ -12,3 +12,7 @@
  *= require_tree .
  *= require active_admin/editor/wysiwyg
  */
+
+.title-page .title {
+	font-size: 32px;
+}

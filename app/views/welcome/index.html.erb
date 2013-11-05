@@ -45,12 +45,8 @@
                               <td class="day">
                                 <% if trip_schedule.date_start != trip_schedule.date_end %>
                                  
-                                  <% if trip_schedule.date_start.month != trip_schedule.date_end.month %>
-                                    <%= link_to (l(trip_schedule.date_start.to_date, :format => :short) + "-" + l(trip_schedule.date_end.to_date, :format => :short)), trip_schedule.trip %>;
-                                  <% else %>
-                                    <%= link_to trip_schedule.date_start.day.to_s + "-" + l(trip_schedule.date_end.to_date, :format => :short), trip_schedule.trip %>;
-                                  <% end %>
-                                
+                                  <%= link_to trip_schedule.date_start.day.to_s + "-" + l(trip_schedule.date_end.to_date, :format => :short), trip_schedule.trip %>;
+                                  
                                 <% else %>
                                  <%= link_to l(trip_schedule.date_start.to_date, :format => :short), trip_schedule.trip %>
                                 <% end %>
@@ -111,12 +107,8 @@
                     
                       <% if schedule.date_start != schedule.date_end %>
                     
-                        <% if schedule.date_start.month != schedule.date_end.month %>
-                          <%= link_to (schedule.date_start.day.to_s + "-" + l(schedule.date_end.to_date, :format => :short)), schedule.trip %>;
-                        <% else %>
-        							    <%= link_to schedule.date_start.day.to_s + "-" + schedule.date_end.day.to_s, schedule.trip %>;
-                        <% end %>
-                    
+                        <%= link_to schedule.date_start.day.to_s + "-" + schedule.date_end.day.to_s, schedule.trip %>;
+                        
                       <% else %>
                        <%= link_to "#{schedule.date_start.day}", schedule %>;
                       <% end %>
@@ -216,7 +208,7 @@
             <div class="contact-details">
               <h3>Контакты</h3>
               <ul>
-                <li><a href="http://themes.alessioatzeni.com/html/chakra/light/index.html#">larisa_1956@mail.ru</a></li>
+                <li><a href="mailto:larisa_1956@mail.ru">larisa_1956@mail.ru</a></li>
                 <li>(812) 314-46-73</li>
                 <li>
                   Сретение
