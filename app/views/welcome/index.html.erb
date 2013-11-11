@@ -83,26 +83,20 @@
         				<% last_category_id = trip.trip_category_id %>
         				<tr style="background-color:#f9dca5">
         					<td><div id="<%=trip.trip_category.tag%>"><%= trip.trip_category.name %></div></td>
-                  <td>ЯНВ</td>
-                  <td>ФЕВ</td>
-                  <td>МАР</td>
-                  <td>АПР</td>
-                  <td>МАЙ</td>
-                  <td>ИЮН</td>
-                  <td>ИЮЛ</td>
-                  <td>АВГ</td>
-                  <td>СЕН</td>
-                  <td>ОКТ</td>
-                  <td>НОЯ</td>
-                  <td>ДЕК</td>
+                  <% current_month = Date.today.month %>
+                  <% for i in 1..12 %>
+                    <% current_month = 1 if current_month >= 13 %>
+                    <td><%= @months[current_month-1] %></td>
+                    <% current_month += 1 %>
+                  <% end %>
         				</tr>
         			<% end %> 
         			
         			<tr>
         				<td><%= link_to trip.name, trip %></td>
-		        		<% for month in 1..12 %>
+		        		<% for month in @months_list %>
         					<td>
-        						
+
                     <% for schedule in @schedule.select{ |s| s.date_start.month == month && s.trip == trip } %>
                     
                       <% if schedule.date_start != schedule.date_end %>

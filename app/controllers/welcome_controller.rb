@@ -20,6 +20,15 @@ class WelcomeController < ApplicationController
 
 		@trips = Trip.order{trip_category_id}.order{order_number}.to_a
 		@schedule = TripSchedule.joins(:trip).order("trip_category_id ASC").to_a
+
+		@months_list = []
+		@months = [ "ЯНВ", "ФЕВ", "МАР", "АПР", "МАЙ", "ИЮН", "ИЮЛ", "АВГ", "СЕН", "ОКТ", "НОЯ", "ДЕК" ]
+		current_month = Date.today.month
+		for i in 1..12
+			current_month = 1 if current_month >= 13
+			@months_list << current_month
+			current_month += 1
+		end
 	end
 
 	def request_create
