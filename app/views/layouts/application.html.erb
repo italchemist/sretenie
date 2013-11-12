@@ -44,6 +44,9 @@
                 <li><a href="<%=root_path%>#crimea">Крым</a></li>
                 <li><a href="<%=root_path%>#balaam">Валаам</a></li>
                 <li><a href="<%=root_path%>#spb">Экскурсии по СПб</a></li>
+                <% for page in Page.all %>
+                  <li><a href="/pages/<%=page.url%>"><%=page.title%></a></li>
+                <% end %>
               </ul>
             </nav>
           </div>

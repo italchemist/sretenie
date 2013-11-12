@@ -1,4 +1,5 @@
 Sretenie::Application.routes.draw do
+  get "pages/show"
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   get "trip/index"
@@ -20,7 +21,8 @@ Sretenie::Application.routes.draw do
   get 'contacts' => 'contacts#index'
   get 'reviews' => 'reviews#index'
   get 'guests' => 'guests#index'
-  
+  get 'pages/:url' => 'pages#show'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
