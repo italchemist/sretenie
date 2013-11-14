@@ -1,5 +1,5 @@
 class NewsController < ApplicationController
   def index
-  	@news = News.all
+  	@news = News.order("id desc")
   end
 end
