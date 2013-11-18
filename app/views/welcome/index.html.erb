@@ -37,7 +37,7 @@
               
                 <div class="row">
                     <% @best_trips.each do |key,value| %>
-                      <div class="span4">
+                      <div class="span3">
                         <h3>Ближайшие <%=@best_trips_headers[key].downcase%></h3>
                         <table class="table table-hover">
                           <% for trip_schedule in value %>
@@ -58,6 +58,24 @@
                       </div>
 
                     <% end %>
+
+                    <div class="span3">   
+                      <h3>Рассылка</h3>                
+                      <form target="_top" action="http://subscribe.ru/member/quick" method="get">
+                      <input type="hidden" name="action" value="quick">
+                      <input type="hidden" name="src" value="list_travel.news.sreteniespb">
+                      <table border="0" cellspacing="0" cellpadding="2" width="250px">
+                      <tr><td align="center">Подписаться на рассылку</td></tr>
+                      <tr><td align="center" valign="middle"><INPUT TYPE=hidden NAME=grp VALUE="travel.news.sreteniespb">
+                      
+                      </td></tr>
+                      <tr><td align="center" valign="middle">
+                      <input type="text" name="email" size="20" maxlength="100" value="ваш e-mail" style="font-size: 9pt; font-family: Trebuchet MS" onFocus="this.value = '';return false;">
+                      <input  type="submit" value="Подписаться" style="font-size: 9pt; font-family: Trebuchet MS">
+                      </td></tr>
+                      </table>
+                      </form>              
+                    </div>
                   
                 </div>
 
