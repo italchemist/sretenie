@@ -100,9 +100,9 @@
         			<% if last_category_id != trip.trip_category_id && trip.trip_category != nil %>
         				<% last_category_id = trip.trip_category_id %>
         				<tr style="background-color:#f9dca5">
-        					<td><div id="<%=trip.trip_category.tag%>"><%= trip.trip_category.name %></div></td>
+        					<td style="width:25%;max-width:25%"><div id="<%=trip.trip_category.tag%>"><%= trip.trip_category.name %></div></td>
                   <% current_month = Date.today.month %>
-                  <% for i in 1..12 %>
+                  <% for i in 1..10 %>
                     <% current_month = 1 if current_month >= 13 %>
                     <td><%= @months[current_month-1] %></td>
                     <% current_month += 1 %>
@@ -112,7 +112,7 @@
         			
         			<tr>
         				<td><%= link_to trip.name, trip %></td>
-		        		<% for month in @months_list %>
+		        		<% for month in @months_list[1..10] %>
         					<td>
 
                     <% for schedule in @schedule.select{ |s| s.date_start.month == month && s.trip == trip } %>
