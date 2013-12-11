@@ -112,10 +112,12 @@
         			
         			<tr>
         				<td><%= link_to trip.name, trip %></td>
-		        		<% for month in @months_list[1..10] %>
+                <% current_month = Date.today.month %>
+		        		<% for month in 1..10 %>
+                  <% current_month = 1 if current_month >= 13 %>
         					<td>
 
-                    <% for schedule in @schedule.select{ |s| s.date_start.month == month-1 && s.trip == trip } %>
+                    <% for schedule in @schedule.select{ |s| s.date_start.month == current_month && s.trip == trip } %>
                     
                       <% if schedule.date_start != schedule.date_end %>
                     
@@ -124,10 +126,11 @@
                       <% else %>
                        <%= link_to "#{schedule.date_start.day}", schedule %>;
                       <% end %>
-        						
+        					 	  
                     <% end %>
 
         					</td>
+                  <% current_month += 1 %>
         				<% end %>
         			</tr>
         		<% end %>
