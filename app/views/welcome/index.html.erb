@@ -115,7 +115,7 @@
 		        		<% for month in @months_list[1..10] %>
         					<td>
 
-                    <% for schedule in @schedule.select{ |s| s.date_start.month == month && s.trip == trip } %>
+                    <% for schedule in @schedule.select{ |s| s.date_start.month == month-1 && s.trip == trip } %>
                     
                       <% if schedule.date_start != schedule.date_end %>
                     
