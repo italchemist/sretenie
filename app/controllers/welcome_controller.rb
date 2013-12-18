@@ -18,7 +18,7 @@ class WelcomeController < ApplicationController
 		@best_trips[:manyday] = TripSchedule.joins(:trip).where{{trip: (trip_category_id == 2)}}.where{date_start >= DateTime.now}.where{{trip: (show_in_upcoming != false)}}.order{date_start}.take(5)
 		@best_trips[:external] = TripSchedule.joins(:trip).where{{trip: (trip_category_id >= 3)}}.where{{trip: (trip_category_id <= 13)}}.where{{trip: (show_in_upcoming != false)}}.where{date_start >= DateTime.now}.order{date_start}.take(5)
 
-		@trips = Trip.order{trip_category_id}.order{order_number}.to_a
+		@trips = Trip.order{order_number}.order{trip_category_id}.to_a
 		@schedule = TripSchedule.joins(:trip).order("trip_category_id ASC").to_a
 
 		@months_list = []
