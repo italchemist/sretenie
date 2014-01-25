@@ -11,12 +11,17 @@
               <% else %>
                 <div class="item">
               <% end %>
-              <center><a href="<%=ad.adv_url%>"/><img src="<%=ad.url%>" style="max-height:400px"></a></center>
-              <div class="container">
-                <div class="carousel-caption">
-                  <p class="lead"><%=ad.description%></p>
-                </div>
-              </div>
+              <center>
+                <table>
+                  <tr>
+                    <td width="50%" align="right" style="text-align: right;">
+                      <a href="<%=ad.adv_url%>"/><img src="<%=ad.url%>" style="max-height:400px"></a>
+                    </td>
+                    <td width="50%" style="vertical-align:middle"><%=raw ad.description%></td>
+                  </tr>
+                </table>
+              </center>
+
             </div>
             <% end %>
           </div>
