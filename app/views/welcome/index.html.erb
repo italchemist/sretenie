@@ -12,14 +12,18 @@
                 <div class="item">
               <% end %>
               <center>
-                <table>
-                  <tr>
-                    <td width="50%" align="right" style="text-align: right;">
-                      <a href="<%=ad.adv_url%>"/><img src="<%=ad.url%>" style="max-height:400px"></a>
-                    </td>
-                    <td width="50%" style="vertical-align:middle"><%=raw ad.description%></td>
-                  </tr>
-                </table>
+                <% if ad.description.empty? %>
+                  <center><a href="<%=ad.adv_url%>"/><img src="<%=ad.url%>" style="height:400px;max-height:400px"></a></center>
+                <% else %>
+                  <table>
+                    <tr>
+                      <td width="50%" align="right" style="text-align: right;">
+                        <a href="<%=ad.adv_url%>"/><img src="<%=ad.url%>" style="height:400px;max-height:400px"></a>
+                      </td>
+                      <td width="50%" style="vertical-align:middle"><%=raw ad.description%></td>
+                    </tr>
+                  </table>
+                <% end %>
               </center>
 
             </div>
