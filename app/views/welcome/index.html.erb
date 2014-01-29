@@ -13,12 +13,12 @@
               <% end %>
               <center>
                 <% if ad.description.empty? %>
-                  <center><a href="<%=ad.adv_url%>"/><img src="<%=ad.url%>" style="max-height:400px"></a></center>
+                  <center><a href="<%=ad.adv_url%>"/><img src="<%=ad.url%>" style="max-height:200px"></a></center>
                 <% else %>
                   <table>
                     <tr>
                       <td width="50%" align="right" style="text-align: right;">
-                        <a href="<%=ad.adv_url%>"/><img src="<%=ad.url%>" style="max-height:400px"></a>
+                        <a href="<%=ad.adv_url%>"/><img src="<%=ad.url%>" style="max-height:200px"></a>
                       </td>
                       <td width="50%" style="vertical-align:middle"><%=raw ad.description%></td>
                     </tr>
